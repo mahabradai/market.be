@@ -5,15 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;  
  
 @Entity  
 
 @Table  
 
-public class Fruits {
+public class Vegetables {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column 
@@ -24,9 +22,6 @@ public class Fruits {
     private double quantity;
     @Column
     private double price;
-    @ManyToOne(optional=false)
-	@JoinColumn(name="idCategory", referencedColumnName="id")
-	private Category category;   //Category is the referenced class - category is the object instance of Category
 	public int getId() {
 		return id;
 	}
@@ -51,16 +46,9 @@ public class Fruits {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public Category getCategory() {
-		return category;
-	}
-	public void setCategory(Category category) {
-		this.category = category;
-	}
 	@Override
 	public String toString() {
-		return "Fruits [id=" + id + ", name=" + name + ", quantity=" + quantity + ", price=" + price + ", category="
-				+ category + "]";
-	}   
+		return "Fruits [id=" + id + ", name=" + name + ", quantity=" + quantity + ", price=" + price + "]";
+	}
     
 }
